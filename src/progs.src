@@ -1,0 +1,7 @@
+#pragma 	PROGS_DAT "../csprogs.dat"
+#define 	CSQC
+#include	"defs.c"
+#include	"defscustom.c"
+#include	"fx.c"
+#include	"render.c"
+#include	"csqc.c"
