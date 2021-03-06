@@ -1,4 +1,5 @@
 # glslShowreel
+![Project Logo](/project.png)
  Mini example about how to use GLSL shaders on FTEQW engine
 
 
