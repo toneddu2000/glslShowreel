@@ -15,13 +15,13 @@ WASD keys and mouse to move, as usual
 There's not really an answer, since the forums at InsideQC became unusable, and since someone asked about the source code, I'll post it here.
 I decided to update the code to permit people to use it with no hassle, since the engine code changed A LOT regarding glsl syntax respect the one posted on InsideQC
 
-##A little in depth
+## A little in depth
 FTEQW exposes to qc developers the possibility to interact with screen between a frame and another. That can be done in client side in the CSQC_UpdateView() function. Is it possible to intercept glsl drawing frame through the setproperty(VF_RT_DESTCOLOUR, "");
 setproperty(VF_RT_SOURCECOLOUR, "mycolorbuffer");
 combo, setting the color and depth buffer(the depth buffer is used to store depth informations about how far objects are in screen space) and then draw them trough the drawpic() function. The drawpic function is just a simple function that draws 2d textures on screen, in this case the textures are rendertotexture 2dsamples.
 The fx.c file is the one that describes how to play with glsl effects
 
-##glsl syntax
+## glsl syntax
 respect other engines the syntax of glsl files is quite identical. There are 2 #IFDEF blocks that identify vertex and fragment blocks. The only main difference is the use of 2d samplers. To create, for example, a 2d Sampler where to store screen texture, you have to type, at the beginning, after the !!ver keyword(used to identify the version of glsl file), the sampler like this
 !!ver 330
 !!samps screen=0
