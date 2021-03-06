@@ -19,7 +19,8 @@ There's not really an answer, since the forums at InsideQC became unusable, and 
 I decided to update the code to permit people to use it with no hassle, since the engine code changed A LOT regarding glsl syntax respect the one posted on InsideQC
 
 ## A little in depth
-FTEQW exposes to qc developers the possibility to interact with screen between a frame and another. That can be done in client side in the CSQC_UpdateView() function. Is it possible to intercept glsl drawing frame through the ```
+FTEQW exposes to qc developers the possibility to interact with screen between a frame and another. That can be done in client side in the CSQC_UpdateView() function. Is it possible to intercept glsl drawing frame through the 
+```
 setproperty(VF_RT_DESTCOLOUR, "");
 setproperty(VF_RT_SOURCECOLOUR, "mycolorbuffer");
 ```
