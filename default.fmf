@@ -1,0 +1,4 @@
+game gs
+name "GLSL Showreel"
+basegame game
+disablehomedir 1

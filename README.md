@@ -1,6 +1,7 @@
 # glslShowreel
 ![Project Logo](/project.png)
  Mini example about how to use GLSL shaders on FTEQW engine
+Youtube video: https://youtu.be/BMtCqBOdkeU
 
 
 ## What?
@@ -11,6 +12,7 @@ Left mouse button: toggle GLSL post processing on/off
 Mouse wheel: loop through all the glsl effects loaded.
 I embedded 6 GLSL post processing effects, but, of course, editing the src, the possibilities are endless.
 WASD keys and mouse to move, as usual
+KNOWN ISSUES: when fired up and clicked with left mouse button, a checker image shows up: just scroll the mouse wheel to change the effect and the game will be back to normal
 
 ## Why?
 There's not really an answer, since the forums at InsideQC became unusable, and since someone asked about the source code, I'll post it here.
