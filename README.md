@@ -19,16 +19,21 @@ There's not really an answer, since the forums at InsideQC became unusable, and 
 I decided to update the code to permit people to use it with no hassle, since the engine code changed A LOT regarding glsl syntax respect the one posted on InsideQC
 
 ## A little in depth
-FTEQW exposes to qc developers the possibility to interact with screen between a frame and another. That can be done in client side in the CSQC_UpdateView() function. Is it possible to intercept glsl drawing frame through the setproperty(VF_RT_DESTCOLOUR, "");
+FTEQW exposes to qc developers the possibility to interact with screen between a frame and another. That can be done in client side in the CSQC_UpdateView() function. Is it possible to intercept glsl drawing frame through the ```
+setproperty(VF_RT_DESTCOLOUR, "");
 setproperty(VF_RT_SOURCECOLOUR, "mycolorbuffer");
+```
 combo, setting the color and depth buffer(the depth buffer is used to store depth informations about how far objects are in screen space) and then draw them trough the drawpic() function. The drawpic function is just a simple function that draws 2d textures on screen, in this case the textures are rendertotexture 2dsamples.
 The fx.c file is the one that describes how to play with glsl effects
 
 ## glsl syntax
 respect other engines the syntax of glsl files is quite identical. There are 2 #IFDEF blocks that identify vertex and fragment blocks. The only main difference is the use of 2d samplers. To create, for example, a 2d Sampler where to store screen texture, you have to type, at the beginning, after the !!ver keyword(used to identify the version of glsl file), the sampler like this
+```
 !!ver 330
 !!samps screen=0
+```
 in this case you'll be able to use s_screen as the first 2d sampler (order matters). Then this order need to be replicated in the scripts/shaderfile.shader with the syntax
+```
 shadername
 {
 	program glslfilename (without path name or .glsl extension)
@@ -37,7 +42,9 @@ shadername
 		map $sourcecolour
 	}
 }
+```
 Since order matters, if you want to store color buffer AND depth buffer, you shader block must be written like this:
+```
 shadername
 {
 	program glslfilename
@@ -49,7 +56,9 @@ shadername
 		map $sourcedepth
 	}
 }
+```
 if you want to ignore depth test use the nodepthtest keyword after the map command
+```
 shadername
 {
 	program glslfilename (without path name or .glsl extension)
@@ -59,7 +68,7 @@ shadername
 		nodepthtest
 	}
 }
-
+```
 ## How to run the demo
 For Windows users, I'll leave the fteqwgl.exe and the fteqccgui.exe in the project, so that, if you want to fire it immediately, you can just click on the fteqwgl_VERSION.exe (I'll put here the most updated version atm)
 For editing source code, you have to edit the .c files in the src folder, and then recompile them with the fteqccgui.exe included. It's GUI based and it's very straightforward.
